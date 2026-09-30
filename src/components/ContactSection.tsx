@@ -138,36 +138,64 @@ export default function ContactSection() {
             <span className="text-[0.6875rem] font-mono text-[var(--color-muted)] uppercase tracking-wider block mb-3">
               // Network Profiles
             </span>
-            <div className="flex flex-wrap gap-4 font-mono text-xs text-[var(--color-text-secondary)]">
-              <a
-                href={social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-magnetic
-                className="hover:text-white transition-colors group inline-flex items-center gap-1"
-              >
-                GITHUB <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-              </a>
-              <span>·</span>
-              <a
-                href={social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-magnetic
-                className="hover:text-white transition-colors group inline-flex items-center gap-1"
-              >
-                LINKEDIN <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-              </a>
-              <span>·</span>
-              <a
-                href={social.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-magnetic
-                className="hover:text-white transition-colors group inline-flex items-center gap-1"
-              >
-                WHATSAPP <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-              </a>
+            <div className="flex flex-wrap gap-2.5 font-mono text-xs">
+              {[
+                {
+                  name: "GITHUB",
+                  href: social.github,
+                  icon: (
+                    <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                  ),
+                  hoverBorder: "hover:border-[rgba(255,255,255,0.4)]",
+                  hoverGlow: "hover:shadow-[0_0_15px_rgba(255,255,255,0.12)]",
+                  accentColor: "group-hover:text-white",
+                },
+                {
+                  name: "LINKEDIN",
+                  href: social.linkedin,
+                  icon: (
+                    <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 0 0 1.58-1.59c0-.88-.71-1.59-1.58-1.59a1.59 1.59 0 0 0-1.59 1.59c0 .88.71 1.59 1.59 1.59M7.85 18.5V10.13H5.06V18.5h2.79z" />
+                    </svg>
+                  ),
+                  hoverBorder: "hover:border-[#0A66C2]/60",
+                  hoverGlow: "hover:shadow-[0_0_15px_rgba(10,102,194,0.25)]",
+                  accentColor: "group-hover:text-[#38BDF8]",
+                },
+                {
+                  name: "WHATSAPP",
+                  href: social.whatsapp,
+                  icon: (
+                    <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9.07 7.4 8.87 7.62C8.65 7.85 8.04 8.42 8.04 9.58C8.04 10.74 8.89 11.85 9.01 12.01C9.13 12.18 10.66 14.54 13.04 15.56C15.01 16.41 15.42 16.24 15.86 16.2C16.48 16.14 17.26 15.71 17.43 15.24C17.6 14.77 17.6 14.37 17.55 14.28C17.5 14.2 17.34 14.14 17.06 14C16.78 13.86 15.44 13.2 15.19 13.11C14.94 13.02 14.76 12.97 14.58 13.25C14.4 13.53 13.88 14.14 13.72 14.32C13.56 14.5 13.4 14.53 13.12 14.39C12.84 14.25 11.94 13.95 10.87 13C10.04 12.26 9.48 11.35 9.32 11.07C9.16 10.79 9.3 10.64 9.44 10.5C9.57 10.37 9.73 10.16 9.87 10C10.01 9.84 10.06 9.73 10.15 9.55C10.24 9.37 10.19 9.21 10.12 9.07C10.05 8.93 9.53 7.65 9.31 7.13C9.1 6.62 8.89 6.69 8.73 6.68C8.58 6.67 8.41 6.67 8.24 6.67" />
+                    </svg>
+                  ),
+                  hoverBorder: "hover:border-[#25D366]/60",
+                  hoverGlow: "hover:shadow-[0_0_15px_rgba(37,211,102,0.25)]",
+                  accentColor: "group-hover:text-[#34D399]",
+                },
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-magnetic
+                  className={`group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0A0A0E] border border-[rgba(255,255,255,0.08)] text-[var(--color-text-secondary)] font-mono text-xs transition-all duration-300 ${item.hoverBorder} ${item.hoverGlow}`}
+                >
+                  <span className={`transition-colors duration-300 ${item.accentColor}`}>
+                    {item.icon}
+                  </span>
+                  <span className={`transition-colors duration-300 ${item.accentColor} font-medium`}>
+                    {item.name}
+                  </span>
+                  <span className="text-[var(--color-muted)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 text-[0.6875rem]">
+                    ↗
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
