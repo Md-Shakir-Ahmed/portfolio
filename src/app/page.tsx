@@ -14,6 +14,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 import SmoothScroll from "@/components/SmoothScroll";
 import { systemSections, identity, social, type SystemStage } from "@/data/portfolio";
+import { getAssetPath } from "@/lib/assets";
 
 // Lazy load MagneticCursor to avoid SSR issues and improve initial load
 const MagneticCursor = dynamic(() => import("@/components/MagneticCursor"), {
@@ -153,7 +154,7 @@ export default function Home() {
                 LINKEDIN
               </a>
               <span>·</span>
-              <a href="/MD.Shakir-Ahmed.pdf" download className="text-[var(--color-primary)] hover:underline">
+              <a href={getAssetPath(social.cvDownloadUrl)} download="MD.Shakir-Ahmed.pdf" className="text-[var(--color-primary)] hover:underline">
                 CV.PDF
               </a>
             </div>

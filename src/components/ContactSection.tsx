@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { social, identity } from "@/data/portfolio";
+import { getAssetPath } from "@/lib/assets";
 import { useScrollReveal, useTextReveal } from "@/lib/animations";
 
 export default function ContactSection() {
@@ -120,7 +121,7 @@ export default function ContactSection() {
                 Credentials & Full History
               </span>
               <a
-                href="/MD.Shakir-Ahmed.pdf"
+                href={getAssetPath(social.cvDownloadUrl)}
                 download="MD.Shakir-Ahmed.pdf"
                 data-magnetic
                 data-cursor-label="DOWNLOAD"

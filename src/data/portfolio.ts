@@ -12,7 +12,7 @@ export const identity = {
   location: "Rajshahi, Bangladesh",
   status: "SYSTEM READY · WAITING FOR REQUEST",
   summary:
-    "Backend-focused Software Engineer engineering resilient APIs, high-throughput business systems, SaaS platforms, centralized identity & SSO topologies, and microservice architectures — backed by competitive programming foundations and applied machine learning experience.",
+    "Backend-focused Software Engineer with 4+ years of hands-on experience engineering resilient APIs, high-throughput business systems, SaaS platforms, centralized identity & SSO topologies, and microservice architectures — backed by competitive programming foundations and applied machine learning experience.",
 } as const;
 
 export const social = {
@@ -399,9 +399,8 @@ export interface EducationItem {
   degree: string;
   institution: string;
   years: string;
-  grade: string;
-  department: string;
   status: string;
+  department: string;
   highlights: string[];
   todoNotes: string;
 }
@@ -412,9 +411,8 @@ export const education: EducationItem[] = [
     degree: "Master of Engineering (M.Eng.) in Computer Science & Engineering",
     institution: "University of Rajshahi",
     years: "07/2023 – Present",
-    grade: "Pursuing",
+    status: "Graduate Research",
     department: "Computer Science and Engineering",
-    status: "In Progress",
     highlights: [
       "Advanced coursework in distributed computing, advanced algorithms, and systems engineering.",
       "Pursuing graduate research focusing on systems and applied computing.",
@@ -426,13 +424,12 @@ export const education: EducationItem[] = [
     degree: "Bachelor of Science (B.Sc.) in Computer Science & Engineering",
     institution: "Varendra University",
     years: "01/2019 – 12/2022",
-    grade: "CGPA 3.52 / 4.00",
-    department: "Computer Science and Engineering",
     status: "Completed",
+    department: "Computer Science and Engineering",
     highlights: [
-      "Graduated with CGPA 3.52/4.00 with rigorous focus on Data Structures, Algorithms, Database Systems, and Software Engineering.",
-      "President, Varendra University Programming Club (01/2022 – 01/2023) mentoring junior competitive programmers.",
-      "Champion, IT QUIZ 2022 & Champion, Intra University Programming Contest 2021.",
+      "Core focus and rigorous specialization in Data Structures, Algorithms, Relational Database Architecture, and Software Engineering.",
+      "President, Varendra University Programming Club (01/2022 – 01/2023) — mentored junior competitive programmers and led university algorithmic initiatives.",
+      "Champion, Intra University Programming Contest 2021 & Champion, IT QUIZ 2022.",
     ],
     todoNotes: "",
   },

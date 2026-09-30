@@ -113,12 +113,13 @@ export default function AboutSection() {
           </p>
 
           <p>
-            Currently at{" "}
+            With over <span className="text-white font-semibold">4+ years</span> of
+            hands-on software engineering experience, I currently serve as Software Engineer at{" "}
             <span className="text-white font-semibold">Varendra University</span>.
-            Previously ~3 years at{" "}
+            Previously at{" "}
             <span className="text-white font-semibold">Business Automation Limited</span>,
-            building government regulatory portals (BTRC LIMS, BRCP WENP) and
-            enterprise systems (EBS, QueuePro).
+            architecting mission-critical government regulatory portals (BTRC LIMS, BRCP WENP) and
+            high-throughput enterprise systems (EBS, QueuePro).
           </p>
 
           <p>

@@ -4,7 +4,8 @@ import { useEffect, useState, useRef, useMemo } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import gsap from "gsap";
-import { identity } from "@/data/portfolio";
+import { identity, social } from "@/data/portfolio";
+import { getAssetPath } from "@/lib/assets";
 import ParticleField from "./ParticleField";
 
 interface HeroSectionProps {
@@ -387,7 +388,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
 
             {/* Secondary CTA: Download CV */}
             <a
-              href="/MD.Shakir-Ahmed.pdf"
+              href={getAssetPath(social.cvDownloadUrl)}
               download="MD.Shakir-Ahmed.pdf"
               data-magnetic
               className="px-6 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[rgba(59,130,246,0.3)] hover:text-white transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-white"
@@ -476,7 +477,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
               }}
             >
               <Image
-                src="/shakir-ahmed.png"
+                src={getAssetPath("/shakir-ahmed.png")}
                 alt="Md. Shakir Ahmed — Backend-focused Software Engineer"
                 fill
                 sizes="(max-width: 768px) 100vw, 380px"
@@ -503,7 +504,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
             style={{ opacity: vis ? 1 : 0 }}
           >
             {[
-              { value: "3+", label: "YRS ENTERPRISE" },
+              { value: "4+", label: "YRS EXPERIENCE" },
               { value: "300+", label: "PROBLEMS SOLVED" },
               { value: "5+", label: "GOV SYSTEMS" },
             ].map((stat) => (

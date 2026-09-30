@@ -399,8 +399,33 @@ export default function ExperienceSection() {
                   <span className="font-mono text-xs text-[var(--color-muted)] mb-2">
                     {edu.years}
                   </span>
-                  <span className="font-mono text-xs text-white px-2.5 py-0.5 rounded-full bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] inline-block">
-                    {edu.grade}
+                  <span
+                    className="font-mono text-xs px-2.5 py-0.5 rounded-full inline-flex items-center gap-1.5 border"
+                    style={{
+                      backgroundColor:
+                        edu.status === "Completed"
+                          ? "rgba(16, 185, 129, 0.08)"
+                          : "rgba(59, 130, 246, 0.08)",
+                      borderColor:
+                        edu.status === "Completed"
+                          ? "rgba(16, 185, 129, 0.25)"
+                          : "rgba(59, 130, 246, 0.25)",
+                      color:
+                        edu.status === "Completed" ? "#34D399" : "#60A5FA",
+                    }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{
+                        backgroundColor:
+                          edu.status === "Completed" ? "#10B981" : "#3B82F6",
+                        boxShadow:
+                          edu.status === "Completed"
+                            ? "0 0 6px rgba(16, 185, 129, 0.5)"
+                            : "0 0 6px rgba(59, 130, 246, 0.5)",
+                      }}
+                    />
+                    {edu.status}
                   </span>
                 </div>
               </div>

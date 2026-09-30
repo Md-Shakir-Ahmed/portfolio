@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { systemSections, identity, social, type SystemStage } from "@/data/portfolio";
+import { getAssetPath } from "@/lib/assets";
 
 interface SpatialNavigationProps {
   activeStage: SystemStage;
@@ -99,8 +100,8 @@ export default function SpatialNavigation({
           </a>
 
           <a
-            href="/MD.Shakir-Ahmed.pdf"
-            download
+            href={getAssetPath(social.cvDownloadUrl)}
+            download="MD.Shakir-Ahmed.pdf"
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--color-primary)] text-white text-xs font-mono font-medium hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300"
             style={{ fontSize: "0.6875rem", letterSpacing: "0.05em" }}
           >
