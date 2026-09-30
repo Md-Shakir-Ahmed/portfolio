@@ -484,14 +484,14 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
                 priority
                 className="object-cover object-top"
                 style={{
-                  filter: "grayscale(0.7) contrast(1.05) brightness(0.95)",
-                  transition: "filter 0.8s ease",
+                  filter: "grayscale(0.15) contrast(1.04) brightness(0.98)",
+                  transition: "filter 0.6s ease, transform 0.6s ease",
                 }}
                 onMouseOver={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0) contrast(1) brightness(1)";
+                  (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0) contrast(1.08) brightness(1.02)";
                 }}
                 onMouseOut={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0.7) contrast(1.05) brightness(0.95)";
+                  (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0.15) contrast(1.04) brightness(0.98)";
                 }}
               />
             </div>

@@ -391,13 +391,10 @@ export default function ExperienceSection() {
                 {/* Institution & Timeframe */}
                 <div className="lg:col-span-4 flex flex-col lg:items-end text-left lg:text-right">
                   <span
-                    className="text-base sm:text-lg text-[var(--color-text-secondary)] font-medium mb-1"
+                    className="text-base sm:text-lg text-[var(--color-text-secondary)] font-medium mb-3"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     {edu.institution}
-                  </span>
-                  <span className="font-mono text-xs text-[var(--color-muted)] mb-2">
-                    {edu.years}
                   </span>
                   <span
                     className="font-mono text-xs px-2.5 py-0.5 rounded-full inline-flex items-center gap-1.5 border"

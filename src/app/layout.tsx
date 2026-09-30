@@ -47,12 +47,21 @@ export const metadata: Metadata = {
       "APIs · Business Systems · SaaS · Identity · Microservices",
     siteName: "SHUV0 / SYSTEM",
     locale: "en_US",
+    images: [
+      {
+        url: "https://md-shakir-ahmed.github.io/portfolio/shakir-ahmed.png",
+        width: 1024,
+        height: 1365,
+        alt: "Md. Shakir Ahmed — Backend-focused Software Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Md. Shakir Ahmed — Backend-focused Software Engineer",
     description:
       "APIs · Business Systems · SaaS · Identity · Microservices",
+    images: ["https://md-shakir-ahmed.github.io/portfolio/shakir-ahmed.png"],
   },
 };
 
@@ -85,6 +94,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   "@type": "Person",
                   "@id": "#shakir",
                   name: "Md. Shakir Ahmed",
+                  image: "https://md-shakir-ahmed.github.io/portfolio/shakir-ahmed.png",
                   jobTitle: "Backend-focused Software Engineer",
                   description:
                     "Backend-focused Software Engineer building APIs, business systems, SaaS products, identity/SSO systems and microservice-oriented solutions, with applied ML experience.",

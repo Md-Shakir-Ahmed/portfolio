@@ -398,7 +398,7 @@ export interface EducationItem {
   id: string;
   degree: string;
   institution: string;
-  years: string;
+  years?: string;
   status: string;
   department: string;
   highlights: string[];
@@ -410,12 +410,11 @@ export const education: EducationItem[] = [
     id: "rajshahi-university-meng",
     degree: "Master of Engineering (M.Eng.) in Computer Science & Engineering",
     institution: "University of Rajshahi",
-    years: "07/2023 – Present",
-    status: "Graduate Research",
+    status: "Completed",
     department: "Computer Science and Engineering",
     highlights: [
-      "Advanced coursework in distributed computing, advanced algorithms, and systems engineering.",
-      "Pursuing graduate research focusing on systems and applied computing.",
+      "Graduate specialization in distributed systems, advanced algorithm design, and system architecture.",
+      "Conducted graduate research focusing on distributed computing paradigms and applied software engineering.",
     ],
     todoNotes: "",
   },
@@ -423,7 +422,6 @@ export const education: EducationItem[] = [
     id: "varendra-university-bsc",
     degree: "Bachelor of Science (B.Sc.) in Computer Science & Engineering",
     institution: "Varendra University",
-    years: "01/2019 – 12/2022",
     status: "Completed",
     department: "Computer Science and Engineering",
     highlights: [
