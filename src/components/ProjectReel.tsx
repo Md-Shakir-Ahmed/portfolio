@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import { projects } from "@/data/portfolio";
 
 export default function ProjectReel() {
@@ -58,10 +59,11 @@ export default function ProjectReel() {
                 <div className="flex items-center gap-6">
                   {project.logo && (
                     <div className="relative shrink-0 w-20 h-20 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                      <img 
+                      <Image 
                         src={project.logo} 
                         alt={`${project.shortName} Logo`} 
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                     </div>
                   )}

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import type { Project } from "@/data/portfolio";
 
 interface ProjectCaseStudyModalProps {
@@ -98,10 +99,11 @@ export default function ProjectCaseStudyModal({
               <div className="flex items-center gap-5">
                 {project.logo && (
                   <div className="relative shrink-0 w-16 h-16 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-lg bg-[rgba(255,255,255,0.02)] p-1">
-                    <img 
+                    <Image 
                       src={project.logo} 
                       alt={`${project.shortName} Logo`} 
-                      className="w-full h-full object-cover rounded-lg"
+                      fill
+                      className="object-cover rounded-lg"
                     />
                   </div>
                 )}
