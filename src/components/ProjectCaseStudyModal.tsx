@@ -65,7 +65,7 @@ export default function ProjectCaseStudyModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] as const }}
-          className="relative w-full max-w-3xl my-8 p-6 sm:p-8 rounded-lg border border-[var(--color-border-active)] bg-[#0A0A0E] shadow-[0_10px_50px_rgba(0,0,0,0.8)] z-10 max-h-[90vh] overflow-y-auto"
+          className="relative w-full max-w-3xl my-8 p-6 sm:p-8 rounded-xl border border-[var(--color-border-active)] bg-[var(--color-surface-modal)] shadow-[0_10px_50px_rgba(0,0,0,0.8)] z-10 max-h-[90vh] overflow-y-auto"
         >
           {/* Header Bar */}
           <div className="flex items-start justify-between pb-4 mb-6 border-b border-[var(--color-border)] gap-4">
@@ -95,18 +95,29 @@ export default function ProjectCaseStudyModal({
                 )}
               </div>
 
-              <h3
-                id="modal-title"
-                className="text-2xl sm:text-3xl text-[var(--color-text)]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {project.name}
-              </h3>
+              <div className="flex items-center gap-5">
+                {project.logo && (
+                  <div className="relative shrink-0 w-16 h-16 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-lg bg-[rgba(255,255,255,0.02)] p-1">
+                    <img 
+                      src={project.logo} 
+                      alt={`${project.shortName} Logo`} 
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                )}
+                <h3
+                  id="modal-title"
+                  className="text-2xl sm:text-3xl text-[var(--color-text)] font-bold"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {project.name}
+                </h3>
+              </div>
             </div>
 
             <button
               onClick={onClose}
-              className="px-3 py-1.5 rounded border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] text-xs text-[var(--color-text-secondary)] transition-all cursor-pointer"
+              className="px-3 py-1.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] text-xs text-[var(--color-text-secondary)] transition-all cursor-pointer"
               style={{ fontFamily: "var(--font-mono)" }}
               aria-label="Close record"
             >

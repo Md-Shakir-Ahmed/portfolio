@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   experience,
   education,
@@ -143,9 +144,9 @@ export default function ExperienceSection() {
     constellationNodes[activeAchievementIndex] || constellationNodes[0];
 
   return (
-    <div className="w-full text-white">
+    <div className="w-full text-[var(--color-text)] flex flex-col gap-24 sm:gap-32">
       {/* ─── SECTION HEADER ─── */}
-      <div className="mb-24 sm:mb-32">
+      <div>
         <span
           className="font-mono text-xs text-[var(--color-primary)] tracking-widest uppercase block mb-3"
           style={{ letterSpacing: "0.15em" }}
@@ -154,11 +155,11 @@ export default function ExperienceSection() {
         </span>
         <h2
           ref={headlineRef}
-          className="text-white font-extrabold tracking-tight max-w-3xl"
+          className="text-[var(--color-text)] font-extrabold tracking-tight max-w-3xl"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-            lineHeight: 1.05,
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            lineHeight: 1.1,
             letterSpacing: "-0.03em",
             perspective: "600px",
           }}
@@ -171,8 +172,8 @@ export default function ExperienceSection() {
         </h2>
       </div>
 
-      {/* ═══ PART 1: EXPERIENCE — VISUAL TIMELINE ═══ */}
-      <div className="mb-32 sm:mb-44">
+      {/* â•â•â• PART 1: EXPERIENCE — VISUAL TIMELINE â•â•â• */}
+      <div className="w-full">
         <div className="flex items-center gap-4 mb-16">
           <span className="font-mono text-xs text-[var(--color-muted)] tracking-widest uppercase">
             01 / CAREER PATH
@@ -214,11 +215,10 @@ export default function ExperienceSection() {
                     aria-label={`Toggle details for ${exp.company}`}
                   >
                     <div
-                      className={`w-4 h-4 rounded-full transition-all duration-500 flex items-center justify-center ${
-                        exp.current
-                          ? "bg-[#030303] border-2 border-[var(--color-primary)] shadow-[0_0_16px_var(--color-primary-glow)] scale-110"
-                          : "bg-[#030303] border border-[rgba(255,255,255,0.3)] group-hover:border-[var(--color-primary)] group-hover:shadow-[0_0_8px_var(--color-primary-glow)]"
-                      }`}
+                      className={`w-4 h-4 rounded-full transition-all duration-500 flex items-center justify-center ${exp.current
+                          ? "bg-[var(--color-bg)] border-2 border-[var(--color-primary)] shadow-[0_0_16px_var(--color-primary-glow)] scale-110"
+                          : "bg-[var(--color-bg)] border border-[rgba(255,255,255,0.3)] group-hover:border-[var(--color-primary)] group-hover:shadow-[0_0_8px_var(--color-primary-glow)]"
+                        }`}
                     >
                       {exp.current && (
                         <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] animate-pulse" />
@@ -246,21 +246,32 @@ export default function ExperienceSection() {
                       )}
                     </div>
 
-                    {/* Large Typography: Company Name */}
-                    <h3
-                      onClick={() =>
-                        setActiveExpId(isExpanded ? null : exp.id)
-                      }
-                      className="text-white font-bold cursor-pointer hover:text-[var(--color-primary)] transition-colors duration-300 inline-block"
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "clamp(1.75rem, 4vw, 3rem)",
-                        lineHeight: 1.1,
-                        letterSpacing: "-0.02em",
-                      }}
+                    {/* Large Typography: Company Name & Logo */}
+                    <div
+                      onClick={() => setActiveExpId(isExpanded ? null : exp.id)}
+                      className="flex items-center gap-4 cursor-pointer group mb-2"
                     >
-                      {exp.company}
-                    </h3>
+                      {exp.logo && (
+                        <div className="relative w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-[0_4px_24px_rgba(0,0,0,0.5)] group-hover:shadow-[0_4px_32px_var(--color-primary-glow)] transition-all duration-300">
+                          <Image
+                            src={exp.logo}
+                            alt={`${exp.company} Logo`}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
+                      <h3
+                        className="text-3xl sm:text-4xl text-[var(--color-text)] font-bold group-hover:text-[var(--color-primary)] transition-colors duration-300"
+                        style={{
+                          fontFamily: "var(--font-display)",
+                          lineHeight: 1.1,
+                          letterSpacing: "-0.02em",
+                        }}
+                      >
+                        {exp.company}
+                      </h3>
+                    </div>
 
                     {/* Role / Designation */}
                     <p className="font-mono text-sm sm:text-base text-[var(--color-text-secondary)] mt-2 mb-4">
@@ -278,7 +289,7 @@ export default function ExperienceSection() {
                         setActiveExpId(isExpanded ? null : exp.id)
                       }
                       data-magnetic
-                      className="font-mono text-xs text-[var(--color-primary)] hover:text-white transition-colors cursor-pointer inline-flex items-center gap-2 mb-4 group/btn"
+                      className="font-mono text-xs text-[var(--color-primary)] hover:text-[var(--color-text)] transition-colors cursor-pointer inline-flex items-center gap-2 mb-4 group/btn"
                       style={{
                         fontSize: "0.75rem",
                         letterSpacing: "0.08em",
@@ -307,16 +318,16 @@ export default function ExperienceSection() {
                           }}
                           className="overflow-hidden"
                         >
-                          <div className="pt-2 pb-4 space-y-3 max-w-3xl border-l-2 border-[rgba(59,130,246,0.3)] pl-4 sm:pl-6 my-2">
+                          <div className="pt-4 pb-6 space-y-5 max-w-3xl border-l-2 border-[rgba(59,130,246,0.3)] pl-6 my-2">
                             {exp.responsibilities.map((resp, i) => (
                               <motion.div
                                 key={i}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1, duration: 0.4 }}
-                                className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)] leading-relaxed"
+                                className="flex items-start gap-4 text-sm sm:text-base text-[var(--color-text-secondary)] leading-loose"
                               >
-                                <span className="text-[var(--color-primary)] font-mono text-xs mt-0.5 shrink-0">
+                                <span className="text-[var(--color-primary)] font-mono text-xs mt-1.5 shrink-0 opacity-80 bg-[var(--color-primary)]/10 px-1.5 py-0.5 rounded">
                                   0{i + 1}
                                 </span>
                                 <span>{resp}</span>
@@ -324,11 +335,11 @@ export default function ExperienceSection() {
                             ))}
 
                             {/* Tech Stack tags */}
-                            <div className="flex flex-wrap gap-2 pt-3">
+                            <div className="flex flex-wrap gap-2.5 pt-6 mt-2 border-t border-[rgba(255,255,255,0.05)]">
                               {exp.technologies.map((t) => (
                                 <span
                                   key={t}
-                                  className="font-mono text-[0.6875rem] text-[var(--color-muted)] border-b border-[rgba(255,255,255,0.15)] pb-0.5 hover:text-white hover:border-[var(--color-primary)] transition-colors"
+                                  className="font-mono text-xs text-[var(--color-muted)] bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] px-2.5 py-1 rounded-md"
                                 >
                                   {t}
                                 </span>
@@ -346,8 +357,8 @@ export default function ExperienceSection() {
         </div>
       </div>
 
-      {/* ═══ PART 2: EDUCATION — EDITORIAL LAYOUT ═══ */}
-      <div className="mb-32 sm:mb-44">
+      {/* â•â•â• PART 2: EDUCATION — EDITORIAL LAYOUT â•â•â• */}
+      <div className="w-full">
         <div className="flex items-center gap-4 mb-16">
           <span className="font-mono text-xs text-[var(--color-muted)] tracking-widest uppercase">
             02 / ACADEMIC MILESTONES
@@ -369,7 +380,7 @@ export default function ExperienceSection() {
                 {/* Degree & Department */}
                 <div className="lg:col-span-6">
                   <h3
-                    className="text-white font-bold mb-2 tracking-tight"
+                    className="text-[var(--color-text)] font-bold mb-2 tracking-tight"
                     style={{
                       fontFamily: "var(--font-display)",
                       fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
@@ -435,8 +446,8 @@ export default function ExperienceSection() {
         </div>
       </div>
 
-      {/* ═══ PART 3: COMPETITIVE PROGRAMMING — ALGORITHMIC FOOTPRINT ═══ */}
-      <div className="mb-32 sm:mb-44">
+      {/* â•â•â• PART 3: COMPETITIVE PROGRAMMING — ALGORITHMIC FOOTPRINT â•â•â• */}
+      <div className="w-full">
         <div className="flex items-center gap-4 mb-16">
           <span className="font-mono text-xs text-[var(--color-muted)] tracking-widest uppercase">
             03 / ALGORITHMIC FOOTPRINT
@@ -446,7 +457,7 @@ export default function ExperienceSection() {
 
         <div
           ref={algoRef}
-          className="relative py-12 sm:py-20 px-6 sm:px-12 rounded-3xl bg-[#050508] border border-[rgba(255,255,255,0.06)] overflow-hidden"
+          className="relative py-12 sm:py-20 px-6 sm:px-12 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden"
           style={{ opacity: 0 }}
         >
           {/* Subtle Background Radial Aura */}
@@ -488,7 +499,7 @@ export default function ExperienceSection() {
           {/* Center Hub: 300+ Counter */}
           <div className="relative z-10 text-center my-8 sm:my-12">
             <div
-              className="font-extrabold text-white tracking-tighter"
+              className="font-extrabold text-[var(--color-text)] tracking-tighter"
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "clamp(4.5rem, 12vw, 8.5rem)",
@@ -522,13 +533,12 @@ export default function ExperienceSection() {
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <span
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        isHovered
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${isHovered
                           ? "bg-[var(--color-primary)] shadow-[0_0_12px_var(--color-primary-glow)] scale-150"
                           : "bg-[rgba(255,255,255,0.2)]"
-                      }`}
+                        }`}
                     />
-                    <span className="font-mono text-xs text-white font-semibold">
+                    <span className="font-mono text-xs text-[var(--color-text)] font-semibold">
                       {p.name}
                     </span>
                   </div>
@@ -547,8 +557,8 @@ export default function ExperienceSection() {
         </div>
       </div>
 
-      {/* ═══ PART 4: LEADERSHIP & ACHIEVEMENTS — CONSTELLATION ═══ */}
-      <div ref={constRef} className="pb-12 sm:pb-24" style={{ opacity: 0 }}>
+      {/* â•â•â• PART 4: LEADERSHIP & ACHIEVEMENTS — CONSTELLATION â•â•â• */}
+      <div ref={constRef} className="w-full" style={{ opacity: 0 }}>
         <div className="flex items-center gap-4 mb-16">
           <span className="font-mono text-xs text-[var(--color-muted)] tracking-widest uppercase">
             04 / LEADERSHIP & HONORS CONSTELLATION
@@ -558,7 +568,7 @@ export default function ExperienceSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left: Constellation Visual Graph */}
-          <div className="lg:col-span-7 relative h-[360px] sm:h-[400px] w-full rounded-3xl bg-[#050508] border border-[rgba(255,255,255,0.06)] overflow-hidden flex items-center justify-center p-4">
+          <div className="lg:col-span-7 relative h-[360px] sm:h-[400px] w-full rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden flex items-center justify-center p-4">
             <svg
               viewBox="0 0 440 380"
               className="w-full h-full select-none"
@@ -669,7 +679,7 @@ export default function ExperienceSection() {
                 </div>
 
                 <h4
-                  className="text-white font-bold tracking-tight"
+                  className="text-[var(--color-text)] font-bold tracking-tight"
                   style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
@@ -690,11 +700,10 @@ export default function ExperienceSection() {
                       key={n.id}
                       onClick={() => setActiveAchievementIndex(i)}
                       data-magnetic
-                      className={`font-mono text-[0.6875rem] px-2.5 py-1 rounded transition-all duration-300 ${
-                        activeAchievementIndex === i
-                          ? "text-white bg-[rgba(59,130,246,0.15)] border border-[rgba(59,130,246,0.3)] shadow-[0_0_8px_rgba(59,130,246,0.2)]"
-                          : "text-[var(--color-muted)] hover:text-white"
-                      }`}
+                      className={`font-mono text-[0.6875rem] px-2.5 py-1 rounded transition-all duration-300 ${activeAchievementIndex === i
+                          ? "text-[var(--color-text)] bg-[rgba(59,130,246,0.15)] border border-[rgba(59,130,246,0.3)] shadow-[0_0_8px_rgba(59,130,246,0.2)]"
+                          : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
+                        }`}
                     >
                       0{i + 1}
                     </button>
@@ -708,3 +717,4 @@ export default function ExperienceSection() {
     </div>
   );
 }
+

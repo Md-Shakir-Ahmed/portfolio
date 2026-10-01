@@ -81,10 +81,10 @@ export default function SystemSpine({
                   <div
                     className={`w-3 h-3 rounded-full transition-all duration-300 flex items-center justify-center ${
                       isActive
-                        ? "bg-[#030303] border-2 border-[var(--color-primary)] shadow-[0_0_12px_var(--color-primary-glow)] scale-125"
+                        ? "bg-[var(--color-bg)] border-2 border-[var(--color-primary)] shadow-[0_0_12px_var(--color-primary-glow)] scale-125"
                         : isPassed
                         ? "bg-[var(--color-primary)] border border-transparent shadow-[0_0_6px_rgba(59,130,246,0.4)]"
-                        : "bg-[#0A0A0A] border border-[var(--color-border)] group-hover:border-[var(--color-muted)]"
+                        : "bg-[var(--color-bg)] border border-[var(--color-border)] group-hover:border-[var(--color-muted)]"
                     }`}
                   >
                     {isActive && (
@@ -104,7 +104,7 @@ export default function SystemSpine({
                       <span className="text-[0.625rem] font-mono text-[var(--color-primary)]">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span className="text-[0.6875rem] font-mono tracking-wider text-white">
+                      <span className="text-[0.6875rem] font-mono tracking-wider text-[var(--color-text)]">
                         {sec.stage}
                       </span>
                     </div>
@@ -130,10 +130,10 @@ export default function SystemSpine({
       </nav>
 
       {/* ─── Mobile Slim Telemetry Header (< 1024px) ───── */}
-      <header className="fixed top-0 left-0 right-0 z-40 lg:hidden bg-[#030303]/90 backdrop-blur-md border-b border-[var(--color-border)] px-4 py-3 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-40 lg:hidden bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)] px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] shadow-[0_0_8px_var(--color-primary-glow)]" />
-          <span className="font-mono text-xs text-white tracking-wider">
+          <span className="font-mono text-xs text-[var(--color-text)] tracking-wider">
             SHUV0://{activeStage}
           </span>
         </div>
@@ -145,8 +145,8 @@ export default function SystemSpine({
               onClick={() => onNavigate(sec.sectionId)}
               className={`px-1.5 py-0.5 rounded text-[0.625rem] font-mono transition-all ${
                 activeStage === sec.stage
-                  ? "bg-[var(--color-primary)] text-white font-semibold"
-                  : "text-[var(--color-muted)] hover:text-white"
+                  ? "bg-[var(--color-primary)] text-[var(--color-text)] font-semibold"
+                  : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
               }`}
             >
               {sec.stage.slice(0, 3)}
@@ -157,3 +157,4 @@ export default function SystemSpine({
     </>
   );
 }
+

@@ -88,7 +88,7 @@ export default function SpatialNavigation({
         <div
           className={`w-full max-w-7xl mx-auto flex items-center justify-between transition-all duration-500 ease-out ${
             scrolled
-              ? "px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl bg-[#050508]/90 backdrop-blur-md border border-[rgba(255,255,255,0.09)] shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
+              ? "px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl bg-[var(--color-bg)]/92 backdrop-blur-lg border border-[var(--color-border)] shadow-[0_12px_40px_rgba(0,0,0,0.7)]"
               : "px-3 py-1.5 bg-transparent border border-transparent"
           }`}
         >
@@ -115,7 +115,7 @@ export default function SpatialNavigation({
 
             {/* Identity & Sub-label with smooth roll swap */}
             <div className="flex flex-col text-left font-mono leading-tight">
-              <span className="text-sm sm:text-base text-white font-bold tracking-wider group-hover:text-[#60A5FA] transition-colors">
+              <span className="text-sm sm:text-base text-[var(--color-text)] font-bold tracking-wider group-hover:text-[var(--color-primary)] transition-colors duration-200">
                 SHAKIR.AHMED
               </span>
               <div className="relative h-[16px] overflow-hidden text-xs text-[var(--color-muted)] tracking-wider uppercase">
@@ -150,7 +150,7 @@ export default function SpatialNavigation({
 
           {/* ─── CENTER: SYSTEM NAVIGATION RAIL (DESKTOP) ──── */}
           <nav
-            className="hidden md:flex pointer-events-auto items-center px-3 sm:px-4 py-1.5 rounded-full bg-[#08080C]/90 border border-[rgba(255,255,255,0.08)] shadow-inner relative"
+            className="hidden md:flex pointer-events-auto items-center px-3 sm:px-4 py-1.5 rounded-full bg-[var(--color-bg)]/92 border border-[var(--color-border)] shadow-inner relative"
             aria-label="System Navigation Rail"
           >
             {/* The physical horizontal bus wire running behind all nodes */}
@@ -169,8 +169,8 @@ export default function SpatialNavigation({
                       onClick={() => handleStageClick(sec.sectionId)}
                       className={`group relative px-3 sm:px-3.5 py-1.5 rounded-full text-xs sm:text-[0.8125rem] font-mono transition-all duration-300 cursor-pointer flex items-center gap-2 outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] ${
                         isActive
-                          ? "text-white font-bold"
-                          : "text-[rgba(255,255,255,0.55)] hover:text-white"
+                          ? "text-[var(--color-text)] font-bold"
+                          : "text-[rgba(255,255,255,0.55)] hover:text-[var(--color-text)]"
                       }`}
                       style={{ letterSpacing: "0.06em" }}
                       aria-current={isActive ? "page" : undefined}
@@ -233,15 +233,15 @@ export default function SpatialNavigation({
           <div className="pointer-events-auto flex items-center gap-2.5 sm:gap-3">
             {/* System Indicator: Signal Telemetry */}
             <div
-              className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#0A0A0E] border border-[rgba(255,255,255,0.08)] font-mono text-xs tracking-wider text-[var(--color-muted)] group cursor-default select-none transition-colors hover:border-[rgba(59,130,246,0.35)]"
+              className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] font-mono text-xs tracking-wider text-[var(--color-muted)] group cursor-default select-none transition-colors hover:border-[var(--color-border-active)]"
               title="System connection telemetry"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse shrink-0" />
+              <span className="w-2 h-2 rounded-full bg-[var(--color-emerald)] shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse shrink-0" />
               <div className="relative h-[16px] overflow-hidden w-[105px]">
                 <span className="block group-hover:-translate-y-full transition-transform duration-300 text-[var(--color-muted)]">
                   SIGNAL ACTIVE
                 </span>
-                <span className="block group-hover:-translate-y-full transition-transform duration-300 text-emerald-400 absolute top-full left-0 whitespace-nowrap font-medium">
+                <span className="block group-hover:-translate-y-full transition-transform duration-300 text-[var(--color-emerald)] absolute top-full left-0 whitespace-nowrap font-medium">
                   SCROLL TO TRACE
                 </span>
               </div>
@@ -254,7 +254,7 @@ export default function SpatialNavigation({
               rel="noopener noreferrer"
               onMouseEnter={() => setGhHovered(true)}
               onMouseLeave={() => setGhHovered(false)}
-              className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A0A0E] border border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.35)] font-mono text-xs sm:text-[0.8125rem] text-[var(--color-text-secondary)] hover:text-white transition-all duration-300 focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] outline-none overflow-hidden"
+              className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[rgba(255,255,255,0.35)] font-mono text-xs sm:text-[0.8125rem] text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-all duration-300 focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] outline-none overflow-hidden"
               aria-label="View source on GitHub"
             >
               <span className="text-[var(--color-muted-dim)]">[</span>
@@ -267,7 +267,7 @@ export default function SpatialNavigation({
                       animate={{ y: 0, opacity: 1 }}
                       exit={reducedMotion ? undefined : { y: -10, opacity: 0 }}
                       transition={{ duration: 0.15 }}
-                      className="flex items-center gap-1 text-white font-medium whitespace-nowrap"
+                      className="flex items-center gap-1 text-[var(--color-text)] font-medium whitespace-nowrap"
                     >
                       <span>SOURCE</span>
                       <span className="text-[#60A5FA]">→</span>
@@ -308,7 +308,7 @@ export default function SpatialNavigation({
               download="MD.Shakir-Ahmed.pdf"
               onMouseEnter={() => setCvHovered(true)}
               onMouseLeave={() => setCvHovered(false)}
-              className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A0A0E] border border-[rgba(59,130,246,0.35)] hover:border-[var(--color-primary)] font-mono text-xs sm:text-[0.8125rem] text-white transition-all duration-300 hover:shadow-[0_0_18px_rgba(59,130,246,0.3)] focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] outline-none overflow-hidden"
+              className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border-active)] hover:border-[var(--color-primary)] font-mono text-xs sm:text-[0.8125rem] text-[var(--color-text)] transition-all duration-300 hover:shadow-[0_0_18px_rgba(56,189,248,0.3)] focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] outline-none overflow-hidden"
               aria-label="Download Curriculum Vitae PDF"
             >
               <span className="text-[rgba(59,130,246,0.6)]">[</span>
@@ -347,7 +347,7 @@ export default function SpatialNavigation({
             {/* Mobile Hamburger Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden flex items-center justify-center p-2 rounded-lg bg-[#0A0A0E] border border-[rgba(255,255,255,0.12)] text-white hover:border-[var(--color-primary)] transition-colors focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] outline-none"
+              className="md:hidden flex items-center justify-center p-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-primary)] transition-colors focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] outline-none"
               aria-label={mobileMenuOpen ? "Close system menu" : "Open system navigation"}
               aria-expanded={mobileMenuOpen}
             >
@@ -376,7 +376,7 @@ export default function SpatialNavigation({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 bg-[#030303]/95 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 md:hidden"
+            className="fixed inset-0 z-50 bg-[var(--color-bg)]/96 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-8 md:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile System Navigation"
@@ -385,14 +385,14 @@ export default function SpatialNavigation({
             <div className="flex items-center justify-between border-b border-[rgba(255,255,255,0.08)] pb-4">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[var(--color-primary)] shadow-[0_0_8px_var(--color-primary-glow)]" />
-                <span className="font-mono text-sm font-bold text-white tracking-widest uppercase">
+                <span className="font-mono text-sm font-bold text-[var(--color-text)] tracking-widest uppercase">
                   SHAKIR.AHMED // SYS_NAV
                 </span>
               </div>
 
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="font-mono text-xs text-[var(--color-muted)] hover:text-white px-3 py-1.5 rounded-lg bg-[#0A0A0E] border border-[rgba(255,255,255,0.1)] transition-colors"
+                className="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] px-3 py-1.5 rounded-lg bg-[#0A0A0E] border border-[rgba(255,255,255,0.1)] transition-colors"
                 aria-label="Close menu"
               >
                 [ ESC / ✕ ]
@@ -422,7 +422,7 @@ export default function SpatialNavigation({
                       className="w-full flex items-center gap-4 text-left group cursor-pointer focus-visible:ring-1 focus-visible:ring-[var(--color-primary)] outline-none rounded-lg p-1.5 transition-all"
                     >
                       {/* Node Indicator */}
-                      <div className="relative flex items-center justify-center w-5 h-5 shrink-0 bg-[#030303] rounded-full">
+                      <div className="relative flex items-center justify-center w-5 h-5 shrink-0 bg-[var(--color-bg)] rounded-full">
                         {isActive ? (
                           <div className="relative flex items-center justify-center">
                             <span className="w-2.5 h-2.5 rounded-full bg-[var(--color-primary)] shadow-[0_0_12px_#3B82F6]" />
@@ -447,8 +447,8 @@ export default function SpatialNavigation({
                         <span
                           className={`font-mono text-base tracking-wider transition-colors ${
                             isActive
-                              ? "text-white font-bold"
-                              : "text-[var(--color-muted)] group-hover:text-white"
+                              ? "text-[var(--color-text)] font-bold"
+                              : "text-[var(--color-muted)] group-hover:text-[var(--color-text)]"
                           }`}
                         >
                           {sec.stage}
@@ -469,7 +469,7 @@ export default function SpatialNavigation({
                 href={social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0A0A0E] border border-[rgba(255,255,255,0.1)] font-mono text-xs text-white hover:border-[var(--color-primary)] transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0A0A0E] border border-[rgba(255,255,255,0.1)] font-mono text-xs text-[var(--color-text)] hover:border-[var(--color-primary)] transition-colors"
               >
                 <span>GITHUB ↗</span>
               </a>
@@ -477,7 +477,7 @@ export default function SpatialNavigation({
               <a
                 href={getAssetPath(social.cvDownloadUrl)}
                 download="MD.Shakir-Ahmed.pdf"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[var(--color-primary)] text-white font-mono text-xs font-semibold hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[var(--color-primary)] text-[var(--color-text)] font-mono text-xs font-semibold hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all"
               >
                 <span>DOWNLOAD CV ↓</span>
               </a>
@@ -488,3 +488,4 @@ export default function SpatialNavigation({
     </>
   );
 }
+

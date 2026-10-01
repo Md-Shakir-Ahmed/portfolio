@@ -97,7 +97,7 @@ export default function GuideSignal({ activeStage, scrollProgress }: GuideSignal
           style={{
             width: "80px",
             height: "80px",
-            background: "radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(139,92,246,0.1) 40%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(56,189,248,0.3) 0%, rgba(167,139,250,0.1) 40%, transparent 70%)",
             filter: "blur(10px)",
             animation: reducedMotion ? "none" : "pulse-halo 3s ease-in-out infinite",
           }}
@@ -106,7 +106,7 @@ export default function GuideSignal({ activeStage, scrollProgress }: GuideSignal
         {/* 3D Outer Orbital Ring */}
         {!reducedMotion && (
           <div
-            className="absolute rounded-full border border-[rgba(59,130,246,0.25)] pointer-events-none"
+            className="absolute rounded-full border border-[rgba(56,189,248,0.25)] pointer-events-none"
             style={{
               width: "48px",
               height: "48px",
@@ -116,7 +116,7 @@ export default function GuideSignal({ activeStage, scrollProgress }: GuideSignal
           >
             {/* Micro Satellite Particle on Outer Ring */}
             <div
-              className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] shadow-[0_0_6px_#60A5FA]"
+              className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] shadow-[0_0_6px_#38BDF8]"
               style={{ position: "absolute", top: "-2px", left: "50%" }}
             />
           </div>
@@ -147,8 +147,8 @@ export default function GuideSignal({ activeStage, scrollProgress }: GuideSignal
           style={{
             boxShadow: `
               0 0 12px var(--color-primary-glow),
-              0 0 30px rgba(59, 130, 246, 0.6),
-              0 0 60px rgba(59, 130, 246, 0.3)
+              0 0 30px rgba(56, 189, 248, 0.6),
+              0 0 60px rgba(56, 189, 248, 0.3)
             `,
             animation: reducedMotion
               ? "none"

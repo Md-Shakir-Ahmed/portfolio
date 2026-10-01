@@ -10,9 +10,11 @@ import AboutSection from "@/components/AboutSection";
 import StackSection from "@/components/StackSection";
 import IdentiCoreArchitecture from "@/components/IdentiCoreArchitecture";
 import ProjectGraph from "@/components/ProjectGraph";
+import ProjectReel from "@/components/ProjectReel";
 import ExperienceSection from "@/components/ExperienceSection";
 import ContactSection from "@/components/ContactSection";
 import SmoothScroll from "@/components/SmoothScroll";
+import CommandPalette from "@/components/CommandPalette";
 import { systemSections, identity, social, type SystemStage } from "@/data/portfolio";
 import { getAssetPath } from "@/lib/assets";
 
@@ -64,9 +66,12 @@ export default function Home() {
 
   return (
     <SmoothScroll>
-      <div className="relative min-h-screen w-full bg-[#030303] text-[#FAFAFA] flex flex-col overflow-x-hidden">
+      <div className="relative min-h-screen w-full bg-[var(--color-bg)] text-[var(--color-text)] flex flex-col overflow-x-hidden">
         {/* ─── Custom Magnetic Cursor ─────────────────────────── */}
         <MagneticCursor />
+
+        {/* ─── Command Palette (Cmd+K) ─────────────────────── */}
+        <CommandPalette onNavigate={scrollToSection} />
 
         {/* ─── Spatial Floating Navigation ─────────────────── */}
         <SpatialNavigation
@@ -115,7 +120,10 @@ export default function Home() {
             aria-label="Projects and Experience"
           >
             <ProjectGraph />
-            <div className="mt-32 sm:mt-40 pt-16 border-t border-[rgba(255,255,255,0.08)]">
+            <div className="mt-32">
+              <ProjectReel />
+            </div>
+            <div className="mt-32 sm:mt-40 pt-16 border-t border-[var(--color-border)]">
               <ExperienceSection />
             </div>
           </section>
@@ -131,26 +139,26 @@ export default function Home() {
         </main>
 
         {/* ─── Minimal Telemetry Footer ────────────────────── */}
-        <footer className="w-full py-12 px-4 sm:px-6 md:px-8 border-t border-[rgba(255,255,255,0.06)] bg-[#030303] text-xs font-mono text-[var(--color-muted-dim)]">
+        <footer className="w-full py-12 px-4 sm:px-6 md:px-8 border-t border-[var(--color-border)] bg-[var(--color-bg)] text-xs font-mono text-[var(--color-muted-dim)]">
           <div className="w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.6)]" />
-              <span className="text-white font-medium">
+              <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-emerald)] shadow-[0_0_6px_rgba(52,211,153,0.6)]" />
+              <span className="text-[var(--color-text)] font-medium">
                 {identity.name}
               </span>
               <span>—</span>
               <span>{identity.positioning}</span>
             </div>
             <div className="flex items-center gap-4 text-[var(--color-muted)]">
-              <a href={`mailto:${social.email}`} className="hover:text-white transition-colors">
+              <a href={`mailto:${social.email}`} className="hover:text-[var(--color-text)] transition-colors duration-200">
                 EMAIL
               </a>
               <span>·</span>
-              <a href={social.github} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+              <a href={social.github} target="_blank" rel="noreferrer" className="hover:text-[var(--color-text)] transition-colors duration-200">
                 GITHUB
               </a>
               <span>·</span>
-              <a href={social.linkedin} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+              <a href={social.linkedin} target="_blank" rel="noreferrer" className="hover:text-[var(--color-text)] transition-colors duration-200">
                 LINKEDIN
               </a>
               <span>·</span>
@@ -158,6 +166,11 @@ export default function Home() {
                 CV.PDF
               </a>
             </div>
+          </div>
+          {/* Keyboard shortcut hint */}
+          <div className="w-full max-w-7xl mx-auto mt-6 pt-4 border-t border-[var(--color-border)] flex items-center justify-center gap-2 text-[var(--color-muted-dim)]">
+            <span className="px-1.5 py-0.5 rounded border border-[var(--color-border)] text-[0.625rem]">⌘K</span>
+            <span className="text-[0.625rem]">Command Palette</span>
           </div>
         </footer>
       </div>

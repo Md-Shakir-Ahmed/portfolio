@@ -62,7 +62,7 @@ export default function ProjectGraph() {
 
       <h2
         ref={headlineRef}
-        className="mb-6 text-white max-w-4xl"
+        className="mb-6 text-[var(--color-text)] max-w-4xl"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "clamp(2.5rem, 5.5vw, 4.25rem)",
@@ -88,7 +88,7 @@ export default function ProjectGraph() {
       {/* ─── Desktop Interactive Node Graph Canvas ─── */}
       <div
         ref={graphRef}
-        className="hidden md:block mb-16 p-6 sm:p-8 rounded-3xl border border-[rgba(255,255,255,0.06)] bg-[#050508] relative overflow-hidden"
+        className="hidden md:block mb-16 p-6 sm:p-8 rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] relative overflow-hidden"
         style={{ opacity: 0 }}
       >
         <div className="flex items-center justify-between pb-4 mb-4 border-b border-[rgba(255,255,255,0.06)]">
@@ -103,7 +103,7 @@ export default function ProjectGraph() {
           </span>
         </div>
 
-        <div className="relative w-full aspect-[16/8] max-h-[420px] bg-[#020204] rounded-2xl border border-[rgba(255,255,255,0.04)]">
+        <div className="relative w-full aspect-[16/8] max-h-[420px] bg-[var(--color-bg)] rounded-2xl border border-[rgba(255,255,255,0.04)]">
           <svg viewBox="0 0 800 420" className="w-full h-full select-none">
             <defs>
               <pattern
@@ -261,8 +261,8 @@ export default function ProjectGraph() {
                   data-magnetic
                   className={`project-item flex items-center justify-between p-3.5 rounded-xl text-left cursor-pointer transition-all duration-300 ${
                     isSelected
-                      ? "text-white border"
-                      : "text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.03)] border border-transparent"
+                      ? "text-[var(--color-text)] border"
+                      : "text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[rgba(255,255,255,0.03)] border border-transparent"
                   }`}
                   style={
                     isSelected
@@ -322,12 +322,23 @@ export default function ProjectGraph() {
                     </span>
                   </div>
 
-                  <h3
-                    className="text-2xl sm:text-3xl text-white font-bold tracking-tight mb-4"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {activeProject.name}
-                  </h3>
+                  <div className="flex items-center gap-5 mb-4">
+                    {activeProject.logo && (
+                      <div className="relative shrink-0 w-16 h-16 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-lg bg-[rgba(255,255,255,0.02)] p-1">
+                        <img 
+                          src={activeProject.logo} 
+                          alt={`${activeProject.shortName} Logo`} 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
+                    )}
+                    <h3
+                      className="text-2xl sm:text-3xl text-[var(--color-text)] font-bold tracking-tight"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      {activeProject.name}
+                    </h3>
+                  </div>
 
                   <p className="text-base text-[var(--color-text-secondary)] leading-relaxed mb-6">
                     {activeProject.summary}
@@ -370,7 +381,7 @@ export default function ProjectGraph() {
                     {activeProject.technologies.map((t) => (
                       <span
                         key={t}
-                        className="px-2.5 py-1 rounded bg-[#0A0A0E] border border-[rgba(255,255,255,0.08)] font-mono text-[0.6875rem] text-white hover:border-[var(--color-primary)] transition-colors"
+                        className="px-2.5 py-1 rounded bg-[var(--color-surface)] border border-[var(--color-border)] font-mono text-[0.6875rem] text-[var(--color-text)] hover:border-[var(--color-primary)] transition-colors"
                       >
                         {t}
                       </span>
@@ -384,7 +395,7 @@ export default function ProjectGraph() {
                     onClick={() => setSelectedModalProject(activeProject)}
                     data-magnetic
                     data-cursor-label="VIEW"
-                    className="inline-flex items-center gap-2 font-mono text-xs text-[var(--color-primary)] hover:text-white transition-colors cursor-pointer group"
+                    className="inline-flex items-center gap-2 font-mono text-xs text-[var(--color-primary)] hover:text-[var(--color-text)] transition-colors cursor-pointer group"
                   >
                     <span>
                       [ UNPACK FULL CASE STUDY SPECIFICATIONS ]
@@ -408,3 +419,4 @@ export default function ProjectGraph() {
     </div>
   );
 }
+

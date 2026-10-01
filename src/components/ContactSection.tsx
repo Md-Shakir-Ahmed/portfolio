@@ -51,7 +51,7 @@ export default function ContactSection() {
 
       <h2
         ref={headlineRef}
-        className="mb-6 text-white max-w-4xl"
+        className="mb-6 text-[var(--color-text)] max-w-4xl"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "clamp(2.5rem, 5.5vw, 4.25rem)",
@@ -97,20 +97,20 @@ export default function ContactSection() {
                 <a
                   href={`mailto:${social.email}`}
                   data-magnetic
-                  className="text-lg sm:text-xl font-mono text-white hover:text-[var(--color-primary)] transition-colors select-all"
+                  className="text-lg sm:text-xl font-mono text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors duration-200 select-all"
                 >
                   {social.email}
                 </a>
                 <button
                   onClick={copyEmail}
                   data-magnetic
-                  className={`px-2.5 py-1 rounded border text-xs font-mono cursor-pointer transition-all duration-300 ${
+                  className={`px-3 py-1.5 rounded-lg border text-xs font-mono cursor-pointer transition-all duration-300 ${
                     copied
-                      ? "bg-emerald-500/20 border-emerald-400/30 text-emerald-400"
-                      : "bg-[#0A0A0E] border-[rgba(255,255,255,0.1)] hover:border-[var(--color-primary)] text-[var(--color-text-secondary)]"
+                      ? "bg-emerald-500/15 border-emerald-400/30 text-[var(--color-emerald)] shadow-[0_0_12px_rgba(52,211,153,0.2)]"
+                      : "bg-[var(--color-surface)] border-[var(--color-border)] hover:border-[var(--color-primary)] text-[var(--color-text-secondary)]"
                   }`}
                 >
-                  {copied ? "✓ COPIED" : "COPY"}
+                  {copied ? "✓ COPIED!" : "COPY EMAIL"}
                 </button>
               </div>
             </div>
@@ -125,10 +125,28 @@ export default function ContactSection() {
                 download="MD.Shakir-Ahmed.pdf"
                 data-magnetic
                 data-cursor-label="DOWNLOAD"
-                className="inline-flex items-center gap-2 font-mono text-sm text-[var(--color-primary)] hover:text-white transition-colors group"
+                className="inline-flex items-center gap-2 font-mono text-sm text-[var(--color-primary)] hover:text-[var(--color-text)] transition-colors group"
               >
                 <span>↓ DOWNLOAD CURRICULUM VITAE (PDF)</span>
                 <span className="group-hover:translate-y-0.5 transition-transform">↓</span>
+              </a>
+            </div>
+
+            {/* Calendar Booking */}
+            <div className="mb-6">
+              <span className="text-[0.6875rem] font-mono text-[var(--color-muted)] uppercase tracking-wider block mb-1">
+                Direct Meeting
+              </span>
+              <a
+                href="https://cal.com/shakir-ahmed"
+                target="_blank"
+                rel="noreferrer"
+                data-magnetic
+                data-cursor-label="BOOK"
+                className="inline-flex items-center gap-2 font-mono text-sm text-[var(--color-primary)] hover:text-[var(--color-text)] transition-colors group"
+              >
+                <span>âœ‰ BOOK ENGINEERING SCREEN (CAL.COM)</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
               </a>
             </div>
           </div>
@@ -150,7 +168,7 @@ export default function ContactSection() {
                   ),
                   hoverBorder: "hover:border-[rgba(255,255,255,0.4)]",
                   hoverGlow: "hover:shadow-[0_0_15px_rgba(255,255,255,0.12)]",
-                  accentColor: "group-hover:text-white",
+                  accentColor: "group-hover:text-[var(--color-text)]",
                 },
                 {
                   name: "LINKEDIN",
@@ -226,7 +244,7 @@ export default function ContactSection() {
                 onFocus={() => setFocusedField("subject")}
                 onBlur={() => setFocusedField(null)}
                 placeholder="e.g. Backend Architecture / High-throughput API Design"
-                className="w-full py-2.5 px-0 bg-transparent border-b border-[rgba(255,255,255,0.15)] text-sm text-white placeholder-[var(--color-muted-dim)] focus:border-[var(--color-primary)] outline-none font-mono transition-all duration-300"
+                className="w-full py-2.5 px-0 bg-transparent border-b border-[rgba(255,255,255,0.15)] text-sm text-[var(--color-text)] placeholder-[var(--color-muted-dim)] focus:border-[var(--color-primary)] outline-none font-mono transition-all duration-300"
               />
               <div
                 className={`absolute bottom-0 left-0 h-px bg-[var(--color-primary)] transition-all duration-500 ${
@@ -254,7 +272,7 @@ export default function ContactSection() {
                 onFocus={() => setFocusedField("message")}
                 onBlur={() => setFocusedField(null)}
                 placeholder="Describe project requirements, tech stack, or inquiry..."
-                className="w-full py-2.5 px-0 bg-transparent border-b border-[rgba(255,255,255,0.15)] text-sm text-white placeholder-[var(--color-muted-dim)] focus:border-[var(--color-primary)] outline-none font-mono resize-none transition-all duration-300"
+                className="w-full py-2.5 px-0 bg-transparent border-b border-[rgba(255,255,255,0.15)] text-sm text-[var(--color-text)] placeholder-[var(--color-muted-dim)] focus:border-[var(--color-primary)] outline-none font-mono resize-none transition-all duration-300"
               />
               <div
                 className={`absolute bottom-0 left-0 h-px bg-[var(--color-primary)] transition-all duration-500 ${
@@ -267,7 +285,7 @@ export default function ContactSection() {
               type="submit"
               data-magnetic
               data-cursor-label="SEND"
-              className="group relative px-8 py-3.5 rounded-full bg-[var(--color-primary)] text-white text-xs font-mono font-medium uppercase tracking-wider cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:scale-105 active:scale-95"
+              className="group relative px-8 py-3.5 rounded-full bg-[var(--color-primary)] text-[var(--color-bg)] text-xs font-mono font-semibold uppercase tracking-wider cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(56,189,248,0.45)] hover:scale-105 active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <span>[ DISPATCH VIA MAIL CLIENT ]</span>
@@ -281,3 +299,4 @@ export default function ContactSection() {
     </div>
   );
 }
+

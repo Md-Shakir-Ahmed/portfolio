@@ -179,6 +179,7 @@ export interface Project {
   factsVerified: boolean;
   todoNotes: string;
   connectionIds: string[]; // for verified relationship drawing in node graph
+  logo?: string;
 }
 
 export const projects: Project[] = [
@@ -204,6 +205,7 @@ export const projects: Project[] = [
     factsVerified: false,
     todoNotes: "",
     connectionIds: ["brcp-wenp", "ebs", "identicore"],
+    logo: "/logos/btrc.jpg",
   },
   {
     id: "brcp-wenp",
@@ -227,6 +229,7 @@ export const projects: Project[] = [
     factsVerified: false,
     todoNotes: "",
     connectionIds: ["btrc-lims", "ebs"],
+    logo: "/logos/brcp.jpg",
   },
   {
     id: "ebs",
@@ -250,6 +253,7 @@ export const projects: Project[] = [
     factsVerified: false,
     todoNotes: "",
     connectionIds: ["queuepro", "btrc-lims", "identicore"],
+    logo: "/logos/ebs.jpg",
   },
   {
     id: "queuepro",
@@ -273,6 +277,7 @@ export const projects: Project[] = [
     factsVerified: false,
     todoNotes: "",
     connectionIds: ["ebs"],
+    logo: "/logos/queuepro.jpg",
   },
   {
     id: "cricgeo",
@@ -296,6 +301,7 @@ export const projects: Project[] = [
     factsVerified: false,
     todoNotes: "",
     connectionIds: ["identicore", "applied-ml-pipeline"],
+    logo: "/logos/cricgeo.jpg",
   },
   {
     id: "identicore",
@@ -319,6 +325,7 @@ export const projects: Project[] = [
     factsVerified: false,
     todoNotes: "",
     connectionIds: ["btrc-lims", "ebs", "cricgeo"],
+    logo: "/logos/identicore.jpg",
   },
   {
     id: "applied-ml-pipeline",
@@ -338,6 +345,7 @@ export const projects: Project[] = [
     factsVerified: true,
     todoNotes: "",
     connectionIds: ["cricgeo"],
+    logo: "/logos/appliedml.jpg",
   },
 ];
 
@@ -352,6 +360,7 @@ export interface Experience {
   summary: string;
   responsibilities: string[];
   technologies: string[];
+  logo?: string;
   todoNotes: string;
 }
 
@@ -363,6 +372,7 @@ export const experience: Experience[] = [
     dates: "Present",
     location: "Rajshahi, Bangladesh",
     current: true,
+    logo: "/logos/varendra-premium.jpg",
     summary:
       "Serving as Software Engineer designing, implementing, and maintaining institutional software infrastructure, internal portals, and digital administrative workflows.",
     responsibilities: [
@@ -380,6 +390,7 @@ export const experience: Experience[] = [
     dates: "03/2023 – 10/2025 (~3 Years)",
     location: "Rajshahi, Bangladesh",
     current: false,
+    logo: "/logos/business-automation-premium.jpg",
     summary:
       "Contributed to high-impact enterprise business systems, national-scale government regulatory portals, and high-throughput queue platforms for a prominent ITES company serving over 300 clients globally.",
     responsibilities: [

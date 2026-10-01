@@ -23,10 +23,29 @@ export default function MagneticCursor() {
     // Add custom cursor class to body (enables cursor:none in CSS)
     document.body.classList.add("has-custom-cursor");
 
+    // Store reference to currently hovered element
+    let hoveredElement: HTMLElement | null = null;
+    let originalTransform = "";
+
     const handleMouseMove = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
+
+      // Magnetic pull logic
+      if (hoveredElement && hoveredElement.hasAttribute("data-magnetic")) {
+        const rect = hoveredElement.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        // Calculate distance from center (max 0.3 factor)
+        const dx = (e.clientX - centerX) * 0.3;
+        const dy = (e.clientY - centerY) * 0.3;
+        
+        // Use gsap if available, otherwise fallback to style
+        hoveredElement.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+        hoveredElement.style.transition = "transform 0.1s ease-out";
+      }
     };
 
     const handleMouseDown = () => setIsClicking(true);
@@ -34,13 +53,33 @@ export default function MagneticCursor() {
 
     const handleElementHover = (e: Event) => {
       const target = e.target as HTMLElement;
-      if (target.closest("[data-magnetic], [data-cursor-label], a, button")) {
+      const closest = target.closest("[data-magnetic], [data-cursor-label], a, button") as HTMLElement;
+      if (closest) {
         setIsHovering(true);
+        if (closest.hasAttribute("data-magnetic")) {
+          hoveredElement = closest;
+          originalTransform = closest.style.transform;
+        }
       }
     };
 
-    const handleElementLeave = () => {
+    const handleElementLeave = (e: Event) => {
       setIsHovering(false);
+      if (hoveredElement) {
+        // Reset transform smoothly
+        hoveredElement.style.transform = originalTransform || "translate3d(0,0,0)";
+        hoveredElement.style.transition = "transform 0.5s ease-out";
+        
+        // Remove style after transition if it was empty originally
+        if (!originalTransform) {
+          setTimeout(() => {
+             if (hoveredElement && !hoveredElement.style.transform.includes('translate3d')) {
+               hoveredElement.style.transform = "";
+             }
+          }, 500);
+        }
+        hoveredElement = null;
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { useScrollReveal, useStaggerReveal, useTextReveal } from "@/lib/animations";
@@ -79,7 +79,7 @@ export default function AboutSection() {
       {/* Section Headline */}
       <h2
         ref={headlineRef}
-        className="mb-10 text-white max-w-4xl"
+        className="mb-10 text-[var(--color-text)] max-w-4xl"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "clamp(2.25rem, 5vw, 4rem)",
@@ -99,25 +99,25 @@ export default function AboutSection() {
       </h2>
 
       {/* ─── Split Layout: Story + Focus Areas ─── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
         {/* Left: Personal Story (scannable paragraphs) */}
         <div
           ref={narrativeRef}
           className="lg:col-span-7 space-y-5 text-[var(--color-text-secondary)] text-base sm:text-lg leading-relaxed"
           style={{ opacity: 0 }}
         >
-          <p className="text-white font-medium text-lg sm:text-xl leading-relaxed">
+          <p className="text-[var(--color-text)] font-medium text-lg sm:text-xl leading-relaxed">
             I am a <strong>Backend-focused Software Engineer</strong> with a
             systems-first mindset — designing the backbone of modern web
             applications.
           </p>
 
           <p>
-            With over <span className="text-white font-semibold">4+ years</span> of
+            With over <span className="text-[var(--color-text)] font-semibold">4+ years</span> of
             hands-on software engineering experience, I currently serve as Software Engineer at{" "}
-            <span className="text-white font-semibold">Varendra University</span>.
+            <span className="text-[var(--color-text)] font-semibold">Varendra University</span>.
             Previously at{" "}
-            <span className="text-white font-semibold">Business Automation Limited</span>,
+            <span className="text-[var(--color-text)] font-semibold">Business Automation Limited</span>,
             architecting mission-critical government regulatory portals (BTRC LIMS, BRCP WENP) and
             high-throughput enterprise systems (EBS, QueuePro).
           </p>
@@ -146,7 +146,7 @@ export default function AboutSection() {
             {focusAreas.map((area, index) => (
               <div
                 key={area}
-                className="flex items-center gap-3 py-2.5 border-b border-[rgba(255,255,255,0.06)] group hover:border-[rgba(59,130,246,0.25)] transition-all duration-300 cursor-default"
+                className="flex items-center gap-3 py-3 border-b border-[var(--color-border)] group hover:border-[var(--color-border-active)] transition-all duration-300 cursor-default"
               >
                 <span
                   className="text-[var(--color-muted-dim)] group-hover:text-[var(--color-primary)] transition-colors shrink-0"
@@ -154,7 +154,7 @@ export default function AboutSection() {
                 >
                   0{index + 1}
                 </span>
-                <span className="text-sm text-[var(--color-text-secondary)] group-hover:text-white transition-colors">
+                <span className="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text)] transition-colors">
                   {area}
                 </span>
                 <span className="ml-auto w-0 h-px bg-[var(--color-primary)] group-hover:w-6 transition-all duration-500" />
@@ -175,17 +175,16 @@ export default function AboutSection() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
           {pillars.map((pillar) => (
             <div
               key={pillar.code}
-              className="pillar-item relative flex flex-col items-start group cursor-default"
-              style={{ opacity: 0 }}
+              className="pillar-item relative flex flex-col items-start group cursor-default p-6 rounded-2xl border border-transparent hover:border-[var(--color-border)] hover:bg-[var(--color-surface)] transition-all duration-500"              style={{ opacity: 0 }}
             >
               {/* Number & Code */}
               <div className="flex items-center gap-3 mb-2.5">
                 <span
-                  className="font-bold text-[rgba(255,255,255,0.08)] group-hover:text-[rgba(59,130,246,0.3)] transition-colors duration-500"
+                  className="font-bold text-[rgba(255,255,255,0.06)] group-hover:text-[var(--color-primary-subtle)] transition-colors duration-500"
                   style={{ fontFamily: "var(--font-display)", fontSize: "2rem" }}
                 >
                   {pillar.num}
@@ -199,7 +198,7 @@ export default function AboutSection() {
               </div>
 
               <h4
-                className="text-lg sm:text-xl text-white font-medium mb-2"
+                className="text-lg sm:text-xl text-[var(--color-text)] font-medium mb-2"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {pillar.title}
@@ -218,3 +217,4 @@ export default function AboutSection() {
     </div>
   );
 }
+

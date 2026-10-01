@@ -102,7 +102,7 @@ export default function IdentiCoreArchitecture() {
             className={`px-4 py-1.5 rounded text-xs transition-all duration-300 cursor-pointer ${
               animating
                 ? "bg-[var(--color-primary-subtle)] text-[var(--color-primary)] border border-[var(--color-primary)] opacity-70"
-                : "bg-[var(--color-primary)] text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] font-medium"
+                : "bg-[var(--color-primary)] text-[var(--color-text)] hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] font-medium"
             }`}
             style={{ fontFamily: "var(--font-mono)", fontSize: "0.6875rem", letterSpacing: "0.08em" }}
           >
@@ -216,7 +216,7 @@ export default function IdentiCoreArchitecture() {
                 width="80"
                 height="60"
                 rx="6"
-                fill="#0A0A0A"
+                fill="#0c0d12"
                 stroke={flowStep === 1 ? "#3B82F6" : "rgba(255,255,255,0.15)"}
                 strokeWidth="1.5"
               />
@@ -234,7 +234,7 @@ export default function IdentiCoreArchitecture() {
                 width="140"
                 height="100"
                 rx="8"
-                fill="#0C0D14"
+                fill="#0e1015"
                 stroke={flowStep === 2 || flowStep === 3 ? "#8B5CF6" : "rgba(255,255,255,0.15)"}
                 strokeWidth={flowStep === 2 || flowStep === 3 ? "2" : "1.5"}
                 filter={flowStep === 2 || flowStep === 3 ? "url(#blue-glow)" : "none"}
@@ -282,7 +282,7 @@ export default function IdentiCoreArchitecture() {
                 width="140"
                 height="60"
                 rx="6"
-                fill="#0A0A0A"
+                fill="#0c0d12"
                 stroke={flowStep === 4 ? "#3B82F6" : "rgba(255,255,255,0.12)"}
                 strokeWidth="1.5"
               />
@@ -300,7 +300,7 @@ export default function IdentiCoreArchitecture() {
                 width="140"
                 height="60"
                 rx="6"
-                fill="#0A0A0A"
+                fill="#0c0d12"
                 stroke={flowStep === 4 ? "#3B82F6" : "rgba(255,255,255,0.12)"}
                 strokeWidth="1.5"
               />
@@ -318,7 +318,7 @@ export default function IdentiCoreArchitecture() {
                 width="140"
                 height="60"
                 rx="6"
-                fill="#0A0A0A"
+                fill="#0c0d12"
                 stroke={flowStep === 4 ? "#3B82F6" : "rgba(255,255,255,0.12)"}
                 strokeWidth="1.5"
               />
@@ -391,3 +391,4 @@ export default function IdentiCoreArchitecture() {
     </div>
   );
 }
+

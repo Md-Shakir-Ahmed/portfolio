@@ -80,7 +80,7 @@ export function useTextReveal(
             duration,
             stagger,
             delay,
-            ease: "power3.out",
+            ease: "expo.out",
             scrollTrigger: {
               trigger: el,
               start: "top 85%",
@@ -101,7 +101,7 @@ export function useTextReveal(
           duration,
           stagger,
           delay,
-          ease: "power3.out",
+          ease: "expo.out",
           onComplete: () => clearTimeout(safetyTimer),
         }
       );
@@ -154,7 +154,7 @@ export function useScrollReveal(
           opacity: 1,
           duration,
           delay,
-          ease: "power3.out",
+          ease: "expo.out",
           scrollTrigger: {
             trigger: el,
             start,
@@ -245,7 +245,7 @@ export function useStaggerReveal(
           duration,
           stagger,
           delay,
-          ease: "power2.out",
+          ease: "expo.out",
           scrollTrigger: {
             trigger: el,
             start: "top 80%",
@@ -318,7 +318,7 @@ export function useCountUp(
       gsap.to(obj, {
         val: endValue,
         duration,
-        ease: "power2.out",
+        ease: "expo.out",
         scrollTrigger: {
           trigger: el,
           start: "top 85%",

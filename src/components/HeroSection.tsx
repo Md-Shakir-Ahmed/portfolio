@@ -203,7 +203,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
       id="hero"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[100dvh] w-full flex flex-col justify-center items-center px-5 sm:px-6 md:px-8 lg:px-12 select-none overflow-hidden"
+      className="relative min-h-[100dvh] w-full flex flex-col justify-center items-center px-5 sm:px-8 md:px-12 lg:px-16 select-none overflow-hidden"
       aria-label="Portfolio introduction — Md. Shakir Ahmed"
     >
       {/* ─── Particle Network Background ─────────────────── */}
@@ -260,12 +260,12 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
           {/* Status Chip */}
           <div
             ref={chipRef}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface)]/80 border border-[var(--color-border)] mb-6 backdrop-blur-sm"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[var(--color-surface)]/80 border border-[var(--color-border)] mb-8 backdrop-blur-sm"
             style={{ opacity: vis ? 1 : 0 }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.7)]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-emerald)] shadow-[0_0_8px_rgba(52,211,153,0.7)]" />
             <span
-              className="text-[var(--color-text-secondary)] tracking-widest uppercase"
+              className="text-[var(--color-muted)] tracking-widest uppercase"
               style={{ fontFamily: "var(--font-mono)", fontSize: "0.625rem" }}
             >
               Available for opportunities
@@ -275,7 +275,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
           {/* ─── H1: Md. Shakir Ahmed — ALWAYS VISIBLE ──── */}
           <h1
             ref={nameRef}
-            className="text-white font-extrabold tracking-tight mb-4"
+            className="text-[var(--color-text)] font-extrabold tracking-tight mb-6"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(2.75rem, 6.5vw, 5.5rem)",
@@ -303,7 +303,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
           {/* Role / Subtitle */}
           <div ref={subtitleRef} style={{ opacity: vis ? 1 : 0 }}>
             <h2
-              className="text-[var(--color-text-secondary)] font-medium mb-5"
+              className="text-[var(--color-text-secondary)] font-medium mb-6"
               style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "clamp(1.15rem, 2.2vw, 1.75rem)",
@@ -320,18 +320,18 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
           {/* Value Proposition */}
           <p
             ref={narrativeRef}
-            className="text-[var(--color-muted)] text-base sm:text-lg mb-7 max-w-xl leading-relaxed"
+            className="text-[var(--color-text-secondary)] text-base sm:text-lg mb-8 max-w-xl leading-relaxed"
             style={{ opacity: vis ? 1 : 0 }}
           >
-            Architecting high-throughput APIs, distributed business systems, and
-            zero-trust identity frameworks for government and enterprise
-            platforms.
+            Distributed Systems &amp; High-Throughput API Engineer. Architecting
+            fault-tolerant infrastructure, zero-trust microservices, and
+            high-concurrency cloud pipelines for government and enterprise platforms.
           </p>
 
           {/* Expertise Tags */}
           <div
             ref={tagsRef}
-            className="flex flex-wrap items-center gap-2 mb-8"
+            className="flex flex-wrap items-center gap-2.5 mb-10"
             style={{ opacity: vis ? 1 : 0 }}
           >
             {[
@@ -344,7 +344,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
             ].map((tag) => (
               <span
                 key={tag}
-                className="tag-item px-2.5 py-1 rounded-md bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[rgba(59,130,246,0.3)] hover:text-white transition-all duration-300 cursor-default"
+                className="tag-item tag-token"
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.625rem",
@@ -366,7 +366,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
             <button
               onClick={onEnterSystem}
               data-magnetic
-              className="group relative px-7 py-3 rounded-full bg-[var(--color-primary)] text-white font-medium cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-white active:scale-[0.97]"
+              className="group relative px-8 py-3.5 rounded-full bg-[var(--color-primary)] text-[var(--color-bg)] font-semibold cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-[0_0_35px_rgba(56,189,248,0.4)] hover:scale-[1.03] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary)] active:scale-[0.97]"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.75rem",
@@ -391,7 +391,7 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
               href={getAssetPath(social.cvDownloadUrl)}
               download="MD.Shakir-Ahmed.pdf"
               data-magnetic
-              className="px-6 py-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[rgba(59,130,246,0.3)] hover:text-white transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-white"
+              className="px-7 py-3.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-active)] hover:text-[var(--color-text)] transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-primary)]"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.75rem",
@@ -504,13 +504,13 @@ export default function HeroSection({ onEnterSystem }: HeroSectionProps) {
             style={{ opacity: vis ? 1 : 0 }}
           >
             {[
-              { value: "4+", label: "YRS EXPERIENCE" },
+              { value: "4+", label: "YEARS EXP" },
               { value: "300+", label: "PROBLEMS SOLVED" },
               { value: "5+", label: "GOV SYSTEMS" },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col items-center text-center">
                 <span
-                  className="text-white font-bold"
+                  className="text-[var(--color-text)] font-bold"
                   style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", lineHeight: 1 }}
                 >
                   {stat.value}

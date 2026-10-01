@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 // ─── Font Configuration ──────────────────────────────────
-// Display: Clash Display (loaded locally from Fontshare CDN fallback)
-// Body: Space Grotesk (Google Fonts, self-hosted by Next.js)
-// Mono: JetBrains Mono (Google Fonts, self-hosted by Next.js)
+// Display/Body: Inter (clean, modern readability — Awwwards standard)
+// Fallback Body: Space Grotesk (Google Fonts, self-hosted by Next.js)
+// Mono: JetBrains Mono (code snippets, metrics, terminal labels ONLY)
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -24,27 +30,29 @@ const jetbrainsMono = JetBrains_Mono({
 
 // ─── SEO Metadata ────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "Md. Shakir Ahmed — Backend-focused Software Engineer",
+  title: "Md. Shakir Ahmed — Distributed Systems & API Infrastructure Engineer",
   description:
-    "Portfolio of Md. Shakir Ahmed — Backend-focused Software Engineer building APIs, business systems, SaaS products, identity/SSO systems and microservice-oriented solutions.",
+    "Portfolio of Md. Shakir Ahmed — Distributed Systems & High-Throughput API Engineer. Architecting fault-tolerant infrastructure, zero-trust microservices, and high-concurrency cloud pipelines.",
   keywords: [
     "Md. Shakir Ahmed",
     "Backend Software Engineer",
+    "Distributed Systems Engineer",
+    "API Infrastructure",
     "Laravel Developer",
     "PHP Developer",
     "FastAPI Developer",
-    "API Developer",
     "SaaS Developer",
     "Identity SSO",
     "Microservices",
+    "Zero-Trust Architecture",
   ],
   authors: [{ name: "Md. Shakir Ahmed" }],
   robots: "index, follow",
   openGraph: {
     type: "website",
-    title: "Md. Shakir Ahmed — Backend-focused Software Engineer",
+    title: "Md. Shakir Ahmed — Distributed Systems & API Infrastructure Engineer",
     description:
-      "APIs · Business Systems · SaaS · Identity · Microservices",
+      "Architecting fault-tolerant infrastructure, zero-trust microservices, and high-concurrency cloud pipelines.",
     siteName: "SHUV0 / SYSTEM",
     locale: "en_US",
     images: [
@@ -52,15 +60,15 @@ export const metadata: Metadata = {
         url: "https://md-shakir-ahmed.github.io/portfolio/shakir-ahmed.png",
         width: 1024,
         height: 1365,
-        alt: "Md. Shakir Ahmed — Backend-focused Software Engineer",
+        alt: "Md. Shakir Ahmed — Distributed Systems & API Infrastructure Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Md. Shakir Ahmed — Backend-focused Software Engineer",
+    title: "Md. Shakir Ahmed — Distributed Systems & API Infrastructure Engineer",
     description:
-      "APIs · Business Systems · SaaS · Identity · Microservices",
+      "Architecting fault-tolerant infrastructure, zero-trust microservices, and high-concurrency cloud pipelines.",
     images: ["https://md-shakir-ahmed.github.io/portfolio/shakir-ahmed.png"],
   },
 };
@@ -69,13 +77,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full`}
     >
       <head>
         {/* Clash Display from Fontshare */}
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700,800&display=swap"
           rel="stylesheet"
         />
         <style
@@ -95,9 +103,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   "@id": "#shakir",
                   name: "Md. Shakir Ahmed",
                   image: "https://md-shakir-ahmed.github.io/portfolio/shakir-ahmed.png",
-                  jobTitle: "Backend-focused Software Engineer",
+                  jobTitle: "Distributed Systems & API Infrastructure Engineer",
                   description:
-                    "Backend-focused Software Engineer building APIs, business systems, SaaS products, identity/SSO systems and microservice-oriented solutions, with applied ML experience.",
+                    "Distributed Systems & High-Throughput API Engineer. Architecting fault-tolerant infrastructure, zero-trust microservices, and high-concurrency cloud pipelines.",
                   address: {
                     "@type": "PostalAddress",
                     addressLocality: "Rajshahi",
@@ -141,7 +149,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col antialiased">
+      <body className="min-h-full flex flex-col antialiased grain-overlay">
         {/* Skip to content — accessibility */}
         <a href="#hero" className="skip-to-content">
           Skip to content

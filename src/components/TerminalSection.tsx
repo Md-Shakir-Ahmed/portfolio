@@ -73,7 +73,7 @@ export default function TerminalSection() {
             <p className="text-emerald-400 font-semibold">Indexed System Records:</p>
             {projects.map((p) => (
               <p key={p.id}>
-                • <strong className="text-white">{p.shortName}</strong> [{p.category}] — {p.categoryLabel}
+                • <strong className="text-[var(--color-text)]">{p.shortName}</strong> [{p.category}] — {p.categoryLabel}
               </p>
             ))}
           </div>
@@ -118,7 +118,7 @@ export default function TerminalSection() {
   }, [history]);
 
   return (
-    <div className="mt-20 p-6 rounded border border-[var(--color-border)] bg-[#070709]">
+    <div className="mt-20 p-6 rounded border border-[var(--color-border)] bg-[var(--color-surface)]">
       {/* Terminal Title Bar */}
       <div className="flex items-center justify-between pb-3 mb-4 border-b border-[var(--color-border)]">
         <div className="flex items-center gap-2">
@@ -151,7 +151,7 @@ export default function TerminalSection() {
           <button
             key={cmd}
             onClick={() => handleCommand(cmd)}
-            className="px-2 py-0.5 rounded text-[0.625rem] font-mono bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-white transition-all cursor-pointer"
+            className="px-2 py-0.5 rounded text-[0.625rem] font-mono bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-text)] transition-all cursor-pointer"
           >
             ${cmd}
           </button>
@@ -164,7 +164,7 @@ export default function TerminalSection() {
           <div key={index} className="space-y-1">
             <div className="flex items-center gap-2 text-[var(--color-primary)]">
               <span>visitor@shuv0:~$</span>
-              <span className="text-white font-medium">{item.command}</span>
+              <span className="text-[var(--color-text)] font-medium">{item.command}</span>
             </div>
             <div className="pl-4 text-[var(--color-text-secondary)] leading-relaxed">
               {item.output}
@@ -190,7 +190,7 @@ export default function TerminalSection() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="type a command (e.g. 'help', 'whoami', 'projects')..."
-          className="flex-1 bg-transparent border-none outline-none font-mono text-xs text-white placeholder-[var(--color-muted-dim)]"
+          className="flex-1 bg-transparent border-none outline-none font-mono text-xs text-[var(--color-text)] placeholder-[var(--color-muted-dim)]"
           aria-label="Terminal command input"
         />
         <button
@@ -203,3 +203,4 @@ export default function TerminalSection() {
     </div>
   );
 }
+
