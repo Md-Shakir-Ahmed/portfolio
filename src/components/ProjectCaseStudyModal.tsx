@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 import type { Project } from "@/data/portfolio";
 
 interface ProjectCaseStudyModalProps {
@@ -100,7 +101,7 @@ export default function ProjectCaseStudyModal({
                 {project.logo && (
                   <div className="relative shrink-0 w-16 h-16 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-lg bg-[rgba(255,255,255,0.02)] p-1">
                     <Image 
-                      src={project.logo} 
+                      src={getAssetPath(project.logo)} 
                       alt={`${project.shortName} Logo`} 
                       fill
                       className="object-cover rounded-lg"

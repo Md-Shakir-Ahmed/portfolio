@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 import { projects, type Project } from "@/data/portfolio";
 import ProjectCaseStudyModal from "./ProjectCaseStudyModal";
 import { useScrollReveal, useTextReveal, useStaggerReveal } from "@/lib/animations";
@@ -327,7 +328,7 @@ export default function ProjectGraph() {
                     {activeProject.logo && (
                       <div className="relative shrink-0 w-16 h-16 rounded-xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-lg bg-[rgba(255,255,255,0.02)] p-1">
                         <Image 
-                          src={activeProject.logo} 
+                          src={getAssetPath(activeProject.logo)} 
                           alt={`${activeProject.shortName} Logo`} 
                           fill
                           className="object-cover rounded-lg"

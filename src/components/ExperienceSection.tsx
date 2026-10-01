@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 import {
   experience,
   education,
@@ -254,7 +255,7 @@ export default function ExperienceSection() {
                       {exp.logo && (
                         <div className="relative w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.1)] shadow-[0_4px_24px_rgba(0,0,0,0.5)] group-hover:shadow-[0_4px_32px_var(--color-primary-glow)] transition-all duration-300">
                           <Image
-                            src={exp.logo}
+                            src={getAssetPath(exp.logo)}
                             alt={`${exp.company} Logo`}
                             fill
                             className="object-cover"

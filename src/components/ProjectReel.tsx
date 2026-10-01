@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assets";
 import { projects } from "@/data/portfolio";
 
 export default function ProjectReel() {
@@ -60,7 +61,7 @@ export default function ProjectReel() {
                   {project.logo && (
                     <div className="relative shrink-0 w-20 h-20 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                       <Image 
-                        src={project.logo} 
+                        src={getAssetPath(project.logo)} 
                         alt={`${project.shortName} Logo`} 
                         fill
                         className="object-cover"
